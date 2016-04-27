@@ -31,3 +31,10 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+OpenLayers-2.13.1/*
+*.tar.gz
+*.json
+*.zip
+*~
+

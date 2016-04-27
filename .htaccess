@@ -1,0 +1,9 @@
+#order deny,allow
+#deny from all
+
+<ifModule mod_deflate.c>
+    <filesMatch "\.(js|css|json|html|php)$">
+        SetOutputFilter DEFLATE
+    </filesMatch>
+    #AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css text/javascript application/javascript
+</ifModule>

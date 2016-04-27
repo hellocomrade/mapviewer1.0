@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript" src="../ol212/lib/OpenLayers.js"></script>
+<script>
+var map = null;
+function init1() {
+map = new OpenLayers.Map("map");
+map.addLayer(new OpenLayers.Layer.OSM());
+
+map.addControl(new OpenLayers.Control.LayerSwitcher());
+map.setCenter(new OpenLayers.LonLat(0,0), 2);
+}
+
+function enlarge() {
+var mapDiv = document.getElementById("map");
+console.log("Current size: "+mapDiv.style.width+ " / "+mapDiv.style.height);
+mapDiv.style.width = mapDiv.clientWidth + 10 + "px";
+mapDiv.style.height = mapDiv.clientHeight + 10 + "px";
+console.log("New size: "+mapDiv.style.width+ " / "+mapDiv.style.height);
+}
+function reduce() {
+var mapDiv = document.getElementById("map");
+console.log("Current size: "+mapDiv.style.width+ " / "+mapDiv.style.height);
+mapDiv.style.width = mapDiv.clientWidth - 10 + "px";
+mapDiv.style.height = mapDiv.clientHeight - 10 + "px";
+console.log("New size: "+mapDiv.style.width+ " / "+mapDiv.style.height);
+}
+function foobar(){alert('foo');}
+</script>
+</head>
+<body onload="init1()">
+<button onclick="enlarge()">Enlarge Map</button>
+<button onclick="reduce()">Reduce Map</button>
+<div id="map" style="width: 500px; height: 400px;"></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+<link type="text/css" href="http://ol3js.org/en/master/build/ol.css" rel="stylesheet">
+<script src="http://ol3js.org/en/master/build/ol.js" type="text/javascript"></script>
+ <style>
+    .map {
+      height: 600px; width: 100%;
+    }
+  </style>
+
+</head>
+<body>
+<div id="map" class="map"></div>
+<br/>
+<div class="span6" id="mouse-position">&nbsp;</div>
+<script type="text/javascript">
+var map = new ol.Map({
+    renderer: ol.RendererHint.CANVAS,
+    //renderers:ol.RendererHints.createFromQueryData(),
+    target: 'map',
+    controls: ol.control.defaults().extend([
+      new ol.control.ZoomToExtent({
+        extent: [
+          -20037508.34, -20037508.34,
+          20037508.34, 20037508.34
+        ]
+      })
+    ]),
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.MapQuestOpenAerial()
+      })
+      ,
+      new ol.layer.Tile({
+	source: new ol.source.TileWMS({
+	  url:"http://geo.glin.net/vector/wms",
+	  params:{"LAYERS":"glin:glwatershed_outline","TILED":true}
+	  
+	})
+      })
+    ],
+    view: new ol.View2D({
+      center: ol.proj.transform([-75, 45], 'EPSG:4326', 'EPSG:3857'),
+      zoom: 4
+    })
+  });
+
+
+/*var mousePositionControl = new ol.control.MousePosition({
+  coordinateFormat: ol.coordinate.createStringXY(4),
+  projection: 'EPSG:4326',
+  // comment the following two lines to have the mouse position
+  // be placed within the map.
+  className: 'custom-mouse-position',
+  target: document.getElementById('mouse-position'),
+  undefinedHTML: '&nbsp;'
+});
+
+var map = new ol.Map({
+  controls: ol.control.defaults().extend([mousePositionControl]),
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],
+  renderers: ol.RendererHints.createFromQueryData(),
+  target: 'map',
+  view: new ol.View2D({
+    center: [0, 0],
+    zoom: 2
+  })
+});
+
+var projectionSelect = new ol.dom.Input(document.getElementById('projection'));
+projectionSelect.on('change:value', function() {
+  mousePositionControl.setProjection(ol.proj.get(projectionSelect.getValue()));
+});
+
+var precisionInput = new ol.dom.Input(document.getElementById('precision'));
+precisionInput.on('change:value', function() {
+  var format = ol.coordinate.createStringXY(precisionInput.getValue());
+  mousePositionControl.setCoordinateFormat(format);
+});
+*/
+</script>
+</body>
+</html>

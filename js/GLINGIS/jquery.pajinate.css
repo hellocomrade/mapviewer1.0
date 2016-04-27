@@ -1,0 +1,52 @@
+.ellipse{
+	float: left;
+}
+
+.pg_container{
+	
+	
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+.page_navigation , .alt_page_navigation{
+	padding-bottom: 10px;
+}
+#dv_pg_container .no_more{
+    background-color: white;
+    color: gray;
+    cursor: default;
+}
+.page_navigation a, .alt_page_navigation a{
+	padding:3px 5px;
+	margin:2px;
+	color:white;
+	text-decoration:none;
+	float: left;
+	font-family: Tahoma;
+	font-size: 9px;
+	background-color:#2489C5;
+}
+.active_page{
+	background-color:white !important;
+	color:black !important;
+}	
+
+.pg_container .content, .alt_content{
+	color: black;
+	padding-left:0;
+	margin:0;
+}
+
+.pg_container .content li, .alt_content li, .content > p{
+	padding: 5px;
+	padding-left:0;
+	list-style:none;
+        display:list-item;
+}
+.first_link{
+    margin-left:0 !important;
+}
+
+
