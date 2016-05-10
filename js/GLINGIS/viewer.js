@@ -2265,7 +2265,7 @@ GLIN.GIS.Viewer=(function(){
 			markerLyr2.addFeatures(ftrs);
 	    	    }
 		}
-	        controls[markerName2]=new OpenLayers.Control.AddMarker({"id":markerName2,"layer":[markerLyr1,markerLyr2,lineLyr],"groups":groups,"clusterftrclicked":cluster.featureClickedHandler,"icon":cluster.hicon});
+	        controls[markerName2]=new OpenLayers.Control.AddMarker({"id":markerName2,"layer":[markerLyr1,markerLyr2,lineLyr],"groups":groups,"clusterftrclicked": null == cluster ? null : cluster.featureClickedHandler,"icon": null == cluster ? null : cluster.hicon});
 	        map.addControl(controls[markerName2]);
 	    }
 	    return markerName2;

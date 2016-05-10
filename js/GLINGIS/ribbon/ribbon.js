@@ -146,6 +146,7 @@
 		}
 		
 		that.switchToTabByIndex = function(index) {
+		    if(tabNames[index] != null){
 			var headerStrip = $('#ribbon #ribbon-tab-header-strip');
 			headerStrip.find('.ribbon-tab-header').removeClass('sel');
 			//headerStrip.find('.ribbon-tab-header').each(function(){console.log($(this).attr('class'));});
@@ -154,6 +155,7 @@
 			$('#ribbon .ribbon-tab').hide();
 			$('#ribbon #'+tabNames[index]).show();
 //headerStrip.find('.ribbon-tab-header').each(function(){console.log($(this).attr('class'));});
+		    }
 		}
 		
 		$.fn.enable = function() {
