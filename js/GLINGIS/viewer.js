@@ -2389,20 +2389,35 @@ GLIN.GIS.Viewer=(function(){
                     map.removePopup(map.popups[i]);
                 }
 	},
-	OnUserMarkerAdded:function(handler){
-	    viewerEvent.AddEvent("Viewer_OnUserMarkerAdded",handler);
+	OnUserMarkerAdded:function(handler, isRemove){
+	    if(true === isRemove)
+		viewerEvent.RemoveEvent("Viewer_OnUserMarkerAdded", handler);
+	    else	
+	        viewerEvent.AddEvent("Viewer_OnUserMarkerAdded", handler);
 	},
-	OnUserPopupDisplayed:function(handler){
-	    viewerEvent.AddEvent("Viewer_OnUserPopupDisplayed",handler);
+	OnUserPopupDisplayed:function(handler, isRemove){
+	    if(true === isRemove)
+		viewerEvent.RemoveEvent("Viewer_OnUserPopupDisplayed", handler);
+	    else
+	        viewerEvent.AddEvent("Viewer_OnUserPopupDisplayed", handler);
 	},
-	OnUserPopupClosing:function(handler){
-            viewerEvent.AddEvent("Viewer_OnUserPopupClosing",handler);
+	OnUserPopupClosing:function(handler, isRemove){
+	    if(true === isRemove)
+		viewerEvent.RemoveEvent("Viewer_OnUserPopupClosing", handler);
+	    else
+                viewerEvent.AddEvent("Viewer_OnUserPopupClosing", handler);
         },
-	OnUserVectorClicked:function(handler){
-	    viewerEvent.AddEvent("Viewer_OnUserVectorClicked",handler);
+	OnUserVectorClicked:function(handler, isRemove){
+	    if(true === isRemove)
+		viewerEvent.RemoveEvent("Viewer_OnUserVectorClicked", handler);
+	    else
+	        viewerEvent.AddEvent("Viewer_OnUserVectorClicked",handler);
 	},
-	OnLayerSelected:function(handler){
-	    viewerEvent.AddEvent("Viewer_OnLayerSelected",handler);
+	OnLayerSelected:function(handler, isRemove){
+	    if(true === isRemove)
+		viewerEvent.RemoveEvent("Viewer_OnLayerSelected", handler);
+	    else
+	        viewerEvent.AddEvent("Viewer_OnLayerSelected", handler);
 	}
     };
 })();
