@@ -27,10 +27,10 @@ GLIN.GIS.Events=(function(){
 			       if(arguments.length>1)
 			       {
 				   var args=Array.prototype.slice.call(arguments);
-				   return events[i].apply(this,args.slice(1,args.length));
+				   events[i].apply(this,args.slice(1,args.length));
 			       }
 			       else	
-			           return events[i]();
+			           events[i]();
 			   }
 		  }
     };
